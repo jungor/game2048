@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E376B78C2157DD3600C069A5 /* UIColor+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = E376B78B2157DD3600C069A5 /* UIColor+Util.m */; };
 		E3DC991321565281000A0E34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DC991221565281000A0E34 /* AppDelegate.m */; };
 		E3DC991621565281000A0E34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DC991521565281000A0E34 /* ViewController.m */; };
 		E3DC991921565281000A0E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3DC991721565281000A0E34 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E376B78A2157DD3600C069A5 /* UIColor+Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Util.h"; sourceTree = "<group>"; };
+		E376B78B2157DD3600C069A5 /* UIColor+Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Util.m"; sourceTree = "<group>"; };
 		E3DC990E21565281000A0E34 /* game2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = game2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DC991121565281000A0E34 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3DC991221565281000A0E34 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E376B78E2158A8F900C069A5 /* uitl */ = {
+			isa = PBXGroup;
+			children = (
+				E376B78A2157DD3600C069A5 /* UIColor+Util.h */,
+				E376B78B2157DD3600C069A5 /* UIColor+Util.m */,
+			);
+			path = uitl;
+			sourceTree = "<group>";
+		};
 		E3DC990521565281000A0E34 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		E3DC991021565281000A0E34 /* game2048 */ = {
 			isa = PBXGroup;
 			children = (
+				E376B78E2158A8F900C069A5 /* uitl */,
 				E3DC991121565281000A0E34 /* AppDelegate.h */,
 				E3DC991221565281000A0E34 /* AppDelegate.m */,
 				E3DC991421565281000A0E34 /* ViewController.h */,
@@ -97,7 +110,7 @@
 		E3DC990621565281000A0E34 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = jungor;
 				TargetAttributes = {
 					E3DC990D21565281000A0E34 = {
@@ -143,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3DC991621565281000A0E34 /* ViewController.m in Sources */,
+				E376B78C2157DD3600C069A5 /* UIColor+Util.m in Sources */,
 				E3DC992121565281000A0E34 /* main.m in Sources */,
 				E3DC991321565281000A0E34 /* AppDelegate.m in Sources */,
 			);
@@ -184,6 +198,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -191,6 +206,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -239,6 +255,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -246,6 +263,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
