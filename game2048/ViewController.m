@@ -129,6 +129,18 @@ static int downSeq[4][4] = {
  重置游戏
  */
 - (void) resetGameGrid {
+    for (NSNumber *key in self.gridCellMap) {
+        UIView *cell = self.gridCellMap[key][0];
+        if ([self.view.subviews containsObject:cell]) {
+            [cell removeFromSuperview];
+        }
+    }
+    for (NSNumber *key in self.gridLbMap) {
+        UIView *cell = self.gridLbMap[key][0];
+        if ([self.view.subviews containsObject:cell]) {
+            [cell removeFromSuperview];
+        }
+    }
     self.gridCellMap = [[NSMutableDictionary alloc] init];
     self.gridLbMap = [[NSMutableDictionary alloc] init];
     int r1 = arc4random_uniform(16);
@@ -225,6 +237,9 @@ static int downSeq[4][4] = {
     if (oldGrid) {
         key = @([self.gridList indexOfObject:oldGrid]);
         [self.gridCellMap[key] removeObject:cell];
+        if (self.gridCellMap[key].count == 0) {
+            self.gridCellMap[key] = nil;
+        }
     }
     key = @([self.gridList indexOfObject:grid]);
     NSMutableArray *cellList = self.gridCellMap[key];
@@ -248,6 +263,9 @@ static int downSeq[4][4] = {
     if (oldGrid) {
         key = @([self.gridList indexOfObject:oldGrid]);
         [self.gridLbMap[key] removeObject:lb];
+        if (self.gridLbMap[key].count == 0) {
+            self.gridLbMap[key] = nil;
+        }
     }
     key = @([self.gridList indexOfObject:grid]);
     NSMutableArray *list = self.gridLbMap[key];
@@ -360,7 +378,7 @@ static int downSeq[4][4] = {
                 if (!cellList || cellList.count == 0) {
                     [arr3 addObject:key];
                 } else {
-                    if ([lbList[0].text compare:@"1024"] == kCFCompareEqualTo) {
+                    if ([lbList[0].text compare:@"16"] == kCFCompareEqualTo) {
                         self.isFinish = YES;
                         [self didFinishWithTitle:@"你赢了"];
                         return;
@@ -372,9 +390,15 @@ static int downSeq[4][4] = {
                 int idx = arr3[arc4random_uniform((int)arr3.count)].intValue;
                 [self createCellAndLbWithRandomNumberAtIndex:idx];
                 NSLog(@"created!");
+                if ([self checkIsFail]) {
+                    self.isFinish = YES;
+                    NSLog(@"你输了");
+                    [self didFinishWithTitle:@"你输了"];
+                }
             } else {
-                self.isFinish = YES;
-                [self didFinishWithTitle:@"你输了"];
+//                self.isFinish = YES;
+//                [self didFinishWithTitle:@"你输了"];
+                NSLog(@"程序状态有问题");
             }
         }
     } completion:nil];
@@ -441,6 +465,27 @@ static int downSeq[4][4] = {
     }
     [self renderAll];
     
+}
+
+- (BOOL) checkIsFail {
+    if (self.gridCellMap.allValues.count < 16) {
+        return false;
+    }
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3; j++) {
+            NSString * n1 = self.gridLbMap[@(4*i+j)][0].text;
+            NSString * n2 = self.gridLbMap[@(4*i+j+1)][0].text;
+            if ([n1 isEqualToString:n2]) {
+                return NO;
+            }
+            n1 = self.gridLbMap[@(4*j+i)][0].text;
+            n2 = self.gridLbMap[@(4*(j+1)+i)][0].text;
+            if ([n1 isEqualToString:n2]) {
+                return true;
+            }
+        }
+    }
+    return true;
 }
 
 
