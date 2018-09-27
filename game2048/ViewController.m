@@ -378,7 +378,7 @@ static int downSeq[4][4] = {
                 if (!cellList || cellList.count == 0) {
                     [arr3 addObject:key];
                 } else {
-                    if ([lbList[0].text compare:@"16"] == kCFCompareEqualTo) {
+                    if ([lbList[0].text compare:@"2048"] == kCFCompareEqualTo) {
                         self.isFinish = YES;
                         [self didFinishWithTitle:@"你赢了"];
                         return;
